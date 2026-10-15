@@ -18,6 +18,16 @@ export const site = {
   nas: 'https://kistler-it.direct.quickconnect.to:5099',
 };
 
+// Echte, steuerbare Statusanzeige im Hero.
+// state: 'online' | 'warning' | 'outage' | 'maintenance'  (vom Bot/Besitzer setzbar)
+// message: optionale Zusatzmeldung (z. B. "Bekannte Störung im Raum Wetzikon.")
+export const serviceStatus = {
+  state: 'online',
+  region: site.region,
+  message: '',
+};
+
+
 // Abwesenheits-Banner: active auf true setzen, um den Hinweis einzublenden.
 // Text einfach hier anpassen – erscheint dann oben auf der Seite.
 export const absence = {

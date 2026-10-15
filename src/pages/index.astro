@@ -1,7 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
 import { Icon } from 'astro-icon/components';
-import { site, stats, services, plans, priceFootnote, fernwartung, values, about } from '../data/site';
+import { site, stats, services, plans, priceFootnote, fernwartung, values, about, serviceStatus } from '../data/site';
+
+const statusLabel: Record<string, string> = {
+  online: '● ONLINE',
+  warning: '● EINGESCHRÄNKT',
+  outage: '● STÖRUNG',
+  maintenance: '● WARTUNG',
+};
+const dotClass = `dot status-${serviceStatus.state}`;
 ---
 
 <style>
@@ -21,6 +29,11 @@ import { site, stats, services, plans, priceFootnote, fernwartung, values, about
   .term { font-family: var(--font-mono); font-size: 13.5px; color: var(--accent-ink); display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--accent-line); background: var(--accent-dim); padding: 8px 16px; border-radius: var(--radius); }
   .term .prompt { color: var(--muted); }
   .term .dot { color: var(--ok); }
+  .term .dot.status-warning { color: #f0b429; }
+  .term .dot.status-outage { color: var(--accent-strong); }
+  .term .dot.status-maintenance { color: var(--muted); }
+  .status-msg { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); margin: 12px 0 0; }
+  .status-msg::before { content: '// '; color: var(--accent-ink); }
   .hero h1 { font-size: clamp(42px, 7vw, 74px); margin: 30px 0 24px; font-weight: 700; letter-spacing: -0.02em; }
   .hero h1 .kicker { display: block; font-family: var(--font-mono); font-size: clamp(13px, 1.6vw, 15px); font-weight: 400; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px; }
   .hero h1 .redline { color: var(--accent-strong); }
@@ -143,9 +156,12 @@ import { site, stats, services, plans, priceFootnote, fernwartung, values, about
     <div class="container hero-inner">
       <span class="term" data-reveal>
         <span class="prompt">$</span>
-        <span>it-status --region {site.region}</span>
-        <span class="dot">● ONLINE</span>
+        <span>it-status --region {serviceStatus.region}</span>
+        <span class={dotClass}>{statusLabel[serviceStatus.state]}</span>
       </span>
+      {serviceStatus.message && (
+        <p class="status-msg" data-reveal>{serviceStatus.message}</p>
+      )}
 
       <h1 data-reveal>
         <span class="kicker">IT-Probleme?</span>
