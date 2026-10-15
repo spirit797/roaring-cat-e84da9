@@ -21,7 +21,7 @@ export const site = {
 // Abwesenheits-Banner: active auf true setzen, um den Hinweis einzublenden.
 // Text einfach hier anpassen – erscheint dann oben auf der Seite.
 export const absence = {
-  active: true,
+  active: false,
   text: 'Wir sind vom 24.12. bis 2.1. in den Ferien. In dieser Zeit sind wir nur eingeschränkt erreichbar – wir melden uns ab dem 3.1. bei Ihnen. Bei dringenden Anliegen schreiben Sie uns eine E-Mail, wir antworten so schnell wie möglich.',
 };
 
