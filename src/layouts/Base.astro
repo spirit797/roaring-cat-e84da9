@@ -1,0 +1,52 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { absence } from '../data/site';
+import '../styles/global.css';
+interface Props { title?: string; description?: string; }
+const { title = 'Kistler-IT – IT-Support & Dienstleistungen in Uster', description = 'Professioneller IT-Support für Firmen und Privatpersonen in der Region Zürich. Computer-Reparatur, Netzwerk, Fernwartung und mehr.' } = Astro.props;
+---
+<style>
+  .absence {
+    position: fixed; top: 72px; left: 0; right: 0; z-index: 90;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 12px 20px; text-align: center;
+    background: var(--accent-dim); border-bottom: 1px solid var(--accent-line);
+    color: var(--text); font-size: 14px;
+  }
+  .absence .abs-ico { color: var(--accent-strong); font-family: var(--font-mono); }
+  @media (max-width: 720px) { .absence { font-size: 13px; } }
+</style>
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a0a0c" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+    <script is:inline>
+      (function(){try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme', t==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
+    </script>
+  </head>
+  <body>
+    <div id="progressBar"></div>
+        <Header />
+            {absence.active && (
+              <div class="absence" role="status">
+                <span class="abs-ico">⚠</span>
+                <span>{absence.text}</span>
+              </div>
+                            )}
+            <main>
+      <slot />
+    </main>
+    <Footer />
+    <button id="toTop" aria-label="Nach oben">↑</button>
+    <script src="../scripts/main.ts"></script>
+  </body>
+</html>

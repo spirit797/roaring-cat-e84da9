@@ -1,0 +1,60 @@
+---
+import { site } from '../data/site';
+import { Icon } from 'astro-icon/components';
+const nav = [
+  ['#leistungen', 'Leistungen'],
+  ['#preise', 'Preise'],
+  ['#fernwartung', 'Fernwartung'],
+  ['#ueber-uns', 'Über uns'],
+  ['#kontakt', 'Kontakt'],
+];
+---
+<style>
+  footer { background: var(--bg-2); border-top: 1px solid var(--line); margin-top: 40px; }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr; gap: 40px; padding: 64px 0 40px; }
+  .foot-grid h4 { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  .logo { font-family: var(--font-mono); font-weight: 700; font-size: 17px; color: var(--text); margin-bottom: 14px; display: inline-block; }
+  .logo .r { color: var(--accent-strong); }
+  .desc { color: var(--muted); font-size: 14px; max-width: 300px; }
+  .foot-grid ul li { padding: 5px 0; }
+  .foot-grid a { color: var(--muted); font-size: 14px; transition: color .2s; }
+  .foot-grid a:hover { color: var(--accent-ink); }
+  .foot-bottom { border-top: 1px solid var(--line); padding: 22px 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--faint); font-size: 13px; }
+  .foot-bottom .legal { display: flex; gap: 22px; }
+  .foot-bottom a { color: var(--faint); transition: color .2s; }
+  .foot-bottom a:hover { color: var(--accent-ink); }
+  @media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr; gap: 32px; } }
+</style>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="logo">KISTLER<span class="r">-IT</span></div>
+        <p class="desc">Professioneller IT-Support für Firmen und Privatpersonen in der Region Zürich.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          {nav.map(([href, label]) => <li><a href={href}>{label}</a></li>)}
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+                  <li><Icon name="lucide:map-pin" size={14} style="color:var(--accent-strong);vertical-align:-2px;margin-right:6px" /> {site.location}</li>
+                  <li><a href={site.phoneHref}><Icon name="lucide:phone" size={14} style="color:var(--accent-strong);vertical-align:-2px;margin-right:6px" /> {site.phone}</a></li>
+                  <li><a href={site.mobileHref}><Icon name="lucide:smartphone" size={14} style="color:var(--accent-strong);vertical-align:-2px;margin-right:6px" /> {site.mobile}</a></li>
+                  <li><a href={site.emailHref}><Icon name="lucide:mail" size={14} style="color:var(--accent-strong);vertical-align:-2px;margin-right:6px" /> {site.email}</a></li>
+                </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© {new Date().getFullYear()} {site.name}. Alle Rechte vorbehalten.</p>
+      <div class="legal">
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>

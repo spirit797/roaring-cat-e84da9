@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+<style>
+  .page { padding: 150px 0 90px; }
+  .page .code { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-ink); }
+  .page h1 { font-size: clamp(30px, 4.5vw, 44px); margin: 14px 0 40px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; margin-bottom: 20px; }
+  .card h2 { font-size: 19px; margin-bottom: 14px; }
+  .card p, .card li { color: var(--muted); font-size: 15px; line-height: 1.7; }
+  .card ol { list-style: decimal; padding-left: 22px; }
+  .card ol li { margin-bottom: 8px; }
+  .back { display: inline-block; margin-top: 26px; font-family: var(--font-mono); color: var(--accent-ink); }
+  .back:hover { text-decoration: underline; }
+</style>
+
+<Base title={`Impressum – ${site.name}`} description="Impressum der Kistler-IT">
+  <div class="container page">
+    <div class="code">[ Impressum ]</div>
+    <h1>Impressum</h1>
+
+    <div class="card">
+      <h2>Kontakt</h2>
+      <p><strong style="color:var(--text)">{site.name}</strong><br />Yves Kistler<br />Winterthurerstrasse 45<br />8610 Uster<br />Schweiz</p>
+      <p style="margin-top:14px;">📞 <a href={site.phoneHref} class="mono" style="color:var(--accent-ink)">{site.phone}</a><br />📱 <a href={site.mobileHref} class="mono" style="color:var(--accent-ink)">{site.mobile}</a><br />✉️ <a href={site.emailHref} class="mono" style="color:var(--accent-ink)">{site.email}</a><br />🌐 <a href="https://{site.domain}" style="color:var(--accent-ink)">www.{site.domain}</a></p>
+    </div>
+
+    <div class="card">
+      <h2>Haftungsausschluss</h2>
+      <p>Der Autor übernimmt keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Inhalte. Die Nutzung der Inhalte der Website erfolgt auf eigene Gefahr des Nutzers. Namentlich gekennzeichnete Beiträge geben die Meinung des jeweiligen Autors wieder.</p>
+    </div>
+
+    <div class="card">
+      <h2>Urheberrecht</h2>
+      <p>Die auf dieser Website veröffentlichten Inhalte und Werke unterliegen dem schweizerischen Urheberrecht. Jede vom Urheberrecht nicht zugelassene Verwertung bedarf der vorherigen schriftlichen Zustimmung des Autors.</p>
+    </div>
+
+    <div class="card">
+      <h2>Datenschutz</h2>
+      <p>Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten erhoben werden, erfolgt dies stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.</p>
+      <p style="margin-top:12px;">Wir weisen darauf hin, dass die Datenübertragung im Internet Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
+    </div>
+
+    <div class="card">
+      <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
+      <ol>
+        <li><strong>Allgemeines:</strong> Die Bedingungen regeln die Belange zwischen der Kistler-IT und ihren Kunden und sind integrierter Bestandteil jedes abgeschlossenen Vertrags. Die Preise sind grundsätzlich fest; alle Preisangaben in CHF inkl. MwSt.</li>
+        <li><strong>Zahlungsbedingungen:</strong> Alle Rechnungen sind in Schweizer Franken nach 30 Tagen netto zahlbar, sofern nichts anderes vereinbart wurde. Eine Verrechnung durch den Kunden ist ausgeschlossen.</li>
+        <li><strong>Verzug des Kunden:</strong> Zahlungsverzug berechtigt die Kistler-IT vom Vertrag zurückzutreten und Schadenersatz zu fordern; ab Fälligkeit sind 5% Verzugszins und Mahnspesen verrechenbar.</li>
+        <li><strong>Eigentumsvorbehalt:</strong> Die Ware bleibt bis zur vollständigen Zahlung Eigentum der Kistler-IT.</li>
+        <li><strong>Lieferungsbedingungen:</strong> Lieferungen erfolgen so schnell wie möglich; Teillieferungen sind zulässig. Bei Beschädigungen oder Verlust ist der Empfänger verpflichtet, ein Protokoll aufnehmen zu lassen. Beanstandungen sind innert 8 Tagen schriftlich anzubringen.</li>
+        <li><strong>Unterlagen:</strong> An allen Unterlagen behält sich die Kistler-IT das ausschliessliche Eigentums- und Urheberrecht vor.</li>
+        <li><strong>Mängelhaftung:</strong> Waren können ungebraucht und original verpackt innert 10 Tagen zurückgegeben werden. Beanstandungen über Menge und Beschaffenheit müssen innert 8 Tagen schriftlich erfolgen. Generell gilt die Garantie des Herstellers. Der Kunde ist für die Datensicherung selber verantwortlich. Schadenersatzansprüche wegen leichter Fahrlässigkeit sind ausgeschlossen.</li>
+        <li><strong>Anwendbares Recht:</strong> Die abgeschlossenen Verträge unterstehen dem schweizerischen Recht.</li>
+        <li><strong>Erfüllungsort und Gerichtsstand:</strong> Es gilt der Sitz der Firma Kistler-IT in Uster, Schweiz.</li>
+      </ol>
+    </div>
+
+    <a class="back" href="/">← Zurück zur Startseite</a>
+  </div>
+</Base>

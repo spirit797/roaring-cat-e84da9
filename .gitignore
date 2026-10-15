@@ -1,0 +1,14 @@
+# Abhängigkeiten
+node_modules/
+
+# Build-Ausgabe
+dist/
+.astro/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db

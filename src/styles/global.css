@@ -1,0 +1,199 @@
+/* ============================================================
+   Kistler-IT — Design-System
+   Professionelles Schwarz/Rot · EDV/Engineering-Ästhetik
+   ============================================================ */
+
+:root {
+  /* Farbe — dunkles Fundament, Rot als gezielter Akzent */
+  --bg: #0a0a0c;
+  --bg-2: #0e0e11;
+  --bg-3: #141418;
+  --panel: #111115;
+  --panel-2: #16161b;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --text: #eaeaea;
+  --muted: #9a9aa5;
+  --faint: #6d6d78;
+  --accent: #e11d1d;
+  --accent-strong: #ff4d4d;
+  --accent-ink: #ff5252;
+  --accent-dim: rgba(225, 29, 29, 0.14);
+  --accent-line: rgba(255, 77, 77, 0.4);
+  --ok: #34d399;
+  --err: var(--accent-strong);
+
+  /* Typografie */
+  --font-sans: 'Space Grotesk', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, monospace;
+
+  --radius: 6px;           /* eckig/technisch statt rund */
+  --ease: cubic-bezier(.2, .6, .25, 1);
+  --maxw: 1200px;
+}
+
+/* ---------- Light-Theme-Struktur (optional, dezentes Hell) ---------- */
+:root[data-theme="light"] {
+  --bg: #f5f5f7;
+  --bg-2: #ffffff;
+  --bg-3: #ececf1;
+  --panel: #ffffff;
+  --panel-2: #f0f0f5;
+  --line: rgba(0, 0, 0, 0.1);
+  --line-strong: rgba(0, 0, 0, 0.2);
+  --text: #16161b;
+  --muted: #55555f;
+  --faint: #90909b;
+  --accent-derived: #d41818;
+  --accent-dim: rgba(225, 29, 29, 0.08);
+}
+
+/* ---------- Reset / Basis ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+main { position: relative; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul, ol { list-style: none; }
+h1, h2, h3, h4, h5 { font-family: var(--font-sans); line-height: 1.12; letter-spacing: -0.02em; font-weight: 700; }
+::selection { background: var(--accent); color: #fff; }
+:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
+
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+section { position: relative; }
+
+/* ---------- Mono-Labels: der EDV-Vibe ---------- */
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+.section-code {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--accent-ink);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.section-code::before {
+  content: "";
+  display: inline-block;
+  width: 26px; height: 1px; background: var(--accent);
+}
+.section-heading { font-size: clamp(30px, 4.5vw, 46px); margin-bottom: 16px; }
+.section-lead { color: var(--muted); max-width: 620px; font-size: 16.5px; }
+.section-head.center { text-align: center; }
+.section-head.center .section-lead { margin-left: auto; margin-right: auto; }
+.section-head.center .section-code::after {
+  content: ""; display: inline-block; width: 26px; height: 1px; background: var(--accent);
+}
+.section { padding: 112px 0; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--font-sans); font-weight: 600; font-size: 15px;
+  padding: 14px 26px; border-radius: var(--radius);
+  border: 1px solid transparent; cursor: pointer;
+  transition: transform .2s var(--ease), box-shadow .25s, background .25s, border-color .25s;
+  position: relative;
+}
+.btn-primary {
+  background: var(--accent); color: #fff;
+  box-shadow: 0 10px 30px -12px rgba(225, 29, 29, 0.7);
+}
+.btn-primary:hover { background: var(--accent-strong); transform: translateY(-2px); box-shadow: 0 16px 40px -12px rgba(225, 29, 29, 0.8); }
+.btn-ghost {
+  background: transparent; color: var(--text);
+  border-color: var(--line-strong);
+}
+.btn-ghost:hover { border-color: var(--accent-line); color: var(--accent-ink); transform: translateY(-2px); }
+.btn-mono { font-family: var(--font-mono); font-size: 13.5px; letter-spacing: 0.04em; }
+.btn .arrow { font-family: var(--font-mono); }
+.btn-lg { padding: 16px 32px; font-size: 16px; }
+
+/* ---------- Blueprint-Ecken auf Panels ---------- */
+.panel {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.corner::before, .corner::after,
+.corner > .c1, .corner > .c2 { content: ""; position: absolute; width: 10px; height: 10px; border: 1px solid var(--accent-line); pointer-events: none; }
+.corner::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.corner::after { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+.corner > .c1 { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+.corner > .c2 { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+/* ---------- Scroll-Reveal ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+[data-reveal].in { opacity: 1; transform: none; }
+
+/* ---------- Progress / Scrollspy / Zustände ---------- */
+#progressBar {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  z-index: 300;
+}
+#toTop {
+  position: fixed; right: 24px; bottom: 24px; z-index: 200;
+  width: 46px; height: 46px; border-radius: var(--radius);
+  border: 1px solid var(--accent-line); background: var(--bg-2); color: var(--text);
+  cursor: pointer; font-size: 17px; display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: translateY(10px); pointer-events: none;
+  transition: opacity .3s, transform .3s, border-color .3s;
+}
+#toTop.show { opacity: 1; transform: none; pointer-events: auto; }
+#toTop:hover { border-color: var(--accent); color: var(--accent-strong); }
+
+/* ---------- Formular ---------- */
+.field { margin-bottom: 18px; }
+.field label { display: block; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.field label .req { color: var(--accent-strong); }
+.field input, .field select, .field textarea {
+  width: 100%; background: var(--bg-2); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 13px 15px;
+  color: var(--text); font-family: var(--font-sans); font-size: 15px;
+  outline: none; transition: border-color .2s, box-shadow .2s;
+}
+.field textarea { resize: vertical; min-height: 120px; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim);
+}
+.form-status { display: none; padding: 13px 15px; border-radius: var(--radius); font-size: 14px; margin-bottom: 18px; }
+.form-status.ok { display: block; background: rgba(52, 211, 153, 0.1); border: 1px solid rgba(52, 211, 153, 0.35); color: var(--ok); }
+.form-status.err { display: block; background: var(--accent-dim); border: 1px solid var(--accent-line); color: var(--err); }
+
+/* ---------- Sonstiges ---------- */
+.grid-overlay {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0.55;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 54px 54px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000, transparent 78%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000, transparent 78%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001s !important; transition-duration: .001s !important; }
+  html { scroll-behavior: auto; }
+  [data-reveal] { opacity: 1; transform: none; }
+}
