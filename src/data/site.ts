@@ -22,9 +22,9 @@ export const site = {
 // state: 'online' | 'warning' | 'outage' | 'maintenance'  (vom Bot/Besitzer setzbar)
 // message: optionale Zusatzmeldung (z. B. "Bekannte Störung im Raum Wetzikon.")
 export const serviceStatus = {
-  state: 'outage',
+  state: 'online',
   region: site.region,
-  message: 'Bekannte Störung bei Swisscom.',
+  message: '',
   // Link wird nur bei state 'outage' (STOERUNG) eingeblendet.
   outageLink: 'https://allestörungen.ch/',
   outageLinkLabel: 'Aktuelle Netzstörungen prüfen',
