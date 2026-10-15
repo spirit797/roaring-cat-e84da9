@@ -88,7 +88,7 @@ export const fernwartung = {
   points: ['Sofortige Hilfe ohne Wartezeit', 'Sichere & verschlüsselte Verbindung', 'Sie sehen alles live auf Ihrem Bildschirm', 'Verbindung jederzeit trennbar'],
   app: { name: 'Supremo Remote Desktop', recommended: true,
     desc: 'Einfache und sichere Fernwartungssoftware. Bitte herunterladen und starten – wir verbinden uns dann mit Ihnen.',
-    download: '/Supremo.exe',
+    download: 'https://assets.nanosystems.com/public/download/Supremo.exe',
     how: 'Laden Sie die App herunter, starten Sie sie und teilen Sie uns die angezeigte ID und das Passwort mit. Wir verbinden uns dann sicher mit Ihrem Gerät.' },
 };
 
