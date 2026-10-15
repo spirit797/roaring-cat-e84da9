@@ -25,6 +25,9 @@ export const serviceStatus = {
   state: 'online',
   region: site.region,
   message: '',
+  // Link wird nur bei state 'outage' (STOERUNG) eingeblendet.
+  outageLink: 'https://allestörungen.ch/',
+  outageLinkLabel: 'Aktuelle Netzstörungen prüfen',
 };
 
 

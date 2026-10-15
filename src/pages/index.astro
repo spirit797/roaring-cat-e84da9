@@ -34,6 +34,10 @@ const dotClass = `dot status-${serviceStatus.state}`;
   .term .dot.status-maintenance { color: var(--muted); }
   .status-msg { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); margin: 12px 0 0; }
   .status-msg::before { content: '// '; color: var(--accent-ink); }
+  .status-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-family: var(--font-mono); font-size: 13px; color: var(--accent-strong); border: 1px solid var(--accent-line); background: var(--accent-dim); padding: 8px 16px; border-radius: var(--radius); text-decoration: none; transition: border-color .3s, color .3s; }
+  .status-link:hover { border-color: var(--accent-strong); color: #fff; }
+  .status-link .arrow { color: var(--accent-ink); }
+  .status-link:hover .arrow { color: var(--accent-strong); }
   .hero h1 { font-size: clamp(42px, 7vw, 74px); margin: 30px 0 24px; font-weight: 700; letter-spacing: -0.02em; }
   .hero h1 .kicker { display: block; font-family: var(--font-mono); font-size: clamp(13px, 1.6vw, 15px); font-weight: 400; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px; }
   .hero h1 .redline { color: var(--accent-strong); }
@@ -161,6 +165,11 @@ const dotClass = `dot status-${serviceStatus.state}`;
       </span>
       {serviceStatus.message && (
         <p class="status-msg" data-reveal>{serviceStatus.message}</p>
+      )}
+      {serviceStatus.state === 'outage' && (
+        <a class="status-link" href={serviceStatus.outageLink} target="_blank" rel="noopener" data-reveal>
+          <span class="arrow">[</span> {serviceStatus.outageLinkLabel} <span class="arrow">→</span>
+        </a>
       )}
 
       <h1 data-reveal>
