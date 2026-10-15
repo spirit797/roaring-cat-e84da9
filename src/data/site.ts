@@ -24,7 +24,7 @@ export const site = {
 export const serviceStatus = {
   state: 'outage',
   region: site.region,
-  message: 'Bekannte Störung im Raum Wetzikon – wir arbeiten an der Behebung.',
+  message: 'Bekannte Störung im Raum Wetzikon.',
   // Link wird nur bei state 'outage' (STOERUNG) eingeblendet.
   outageLink: 'https://allestörungen.ch/',
   outageLinkLabel: 'Aktuelle Netzstörungen prüfen',
