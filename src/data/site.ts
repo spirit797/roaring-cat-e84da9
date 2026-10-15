@@ -86,9 +86,9 @@ export const priceFootnote = '* Alle Preise in CHF inkl. MwSt. Gratis bis 10 km 
 export const fernwartung = {
   lead: 'Kein Problem ist zu klein. Wir verbinden uns sicher mit Ihrem Computer und lösen Ihr Problem direkt – ohne Wartezeit und ohne Anfahrt.',
   points: ['Sofortige Hilfe ohne Wartezeit', 'Sichere & verschlüsselte Verbindung', 'Sie sehen alles live auf Ihrem Bildschirm', 'Verbindung jederzeit trennbar'],
-  app: { name: 'Supremo Remote Desktop', recommended: true,
+  app: { name: 'Kistler-IT Fernwartung', recommended: true,
     desc: 'Einfache und sichere Fernwartungssoftware. Bitte herunterladen und starten – wir verbinden uns dann mit Ihnen.',
-    download: 'https://assets.nanosystems.com/public/download/Supremo.exe',
+    download: '/Fernwartung%20Kistler-IT.exe',
     how: 'Laden Sie die App herunter, starten Sie sie und teilen Sie uns die angezeigte ID und das Passwort mit. Wir verbinden uns dann sicher mit Ihrem Gerät.' },
 };
 
