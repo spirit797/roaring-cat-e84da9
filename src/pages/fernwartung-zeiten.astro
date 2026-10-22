@@ -1,15 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { site } from '../data/site';
-const schedule = [
-  ['So', 'Sonntag', 'Nicht verfügbar', false],
-  ['Mo', 'Montag', '08:00 – 10:00 · 18:00 – 20:00', true],
-  ['Di', 'Dienstag', '08:00 – 10:00 · 18:00 – 20:00', true],
-  ['Mi', 'Mittwoch', '18:00 – 20:00', true],
-  ['Do', 'Donnerstag', '08:00 – 10:00 · 18:00 – 20:00', true],
-  ['Fr', 'Freitag', 'Nicht verfügbar', false],
-  ['Sa', 'Samstag', 'Nicht verfügbar', false],
-];
+import { site, supportHours } from '../data/site';
 ---
 <style>
   .page { padding: 150px 0 90px; }
@@ -37,11 +28,11 @@ const schedule = [
     <p class="intro">In folgenden Zeitfenstern bin ich für Fernwartungen erreichbar. Bitte laden Sie vorher die Supremo-Software herunter.</p>
 
     <div class="table">
-      {schedule.map(([short, name, time, avail]) => (
-        <div class={`row ${avail ? '' : 'off'}`}>
-          <div class="c day">{short}</div>
-          <div class="c name">{name}</div>
-          <div class="c time" style={`${avail ? 'color:var(--ok)' : 'color:var(--err)'}`}>{time}</div>
+      {supportHours.schedule.map((s) => (
+        <div class={`row ${s.open ? '' : 'off'}`}>
+          <div class="c day">{s.short}</div>
+          <div class="c name">{s.day}</div>
+          <div class="c time" style={`${s.open ? 'color:var(--ok)' : 'color:var(--err)'}`}>{s.hours}</div>
         </div>
       ))}
     </div>

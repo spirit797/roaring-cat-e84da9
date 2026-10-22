@@ -83,8 +83,7 @@ export const plans = [
 
 export const priceFootnote = '* Alle Preise in CHF inkl. MwSt. Gratis bis 10 km ab Uster, ab 10 km CHF 2.80 / Kilometer.';
 
-export const fernwartung = {
-  lead: 'Kein Problem ist zu klein. Wir verbinden uns sicher mit Ihrem Computer und lösen Ihr Problem direkt – ohne Wartezeit und ohne Anfahrt.',
+export const fernwartung = {  lead: 'Kein Problem ist zu klein. Wir verbinden uns sicher mit Ihrem Computer und lösen Ihr Problem direkt – ohne Wartezeit und ohne Anfahrt.',
   points: ['Sofortige Hilfe ohne Wartezeit', 'Sichere & verschlüsselte Verbindung', 'Sie sehen alles live auf Ihrem Bildschirm', 'Verbindung jederzeit trennbar'],
   app: { name: 'Kistler-IT Fernwartung', recommended: true,
     desc: 'Einfache und sichere Fernwartungssoftware. Bitte herunterladen und starten – wir verbinden uns dann mit Ihnen.',
@@ -104,3 +103,18 @@ export const about = [
   'Unsere Stärke ist die persönliche Betreuung. Bei uns sind Sie keine Ticketnummer – wir kennen Sie und Ihre IT-Infrastruktur.',
   'Sauber unterwegs, sauber gelöst. Kistler-IT ist für Sie 100 % ökologisch unterwegs mit ÖV, E-Bike und E-Scooter.',
 ];
+
+// Telefon-Erreichbarkeit (Wochenplan). dayIndex: 0=Mo … 6=So (wird für „Heute“-Markierung genutzt)
+export const supportHours = {
+  title: 'Telefon-Erreichbarkeit',
+  note: 'So erreichen Sie uns telefonisch. Ausserhalb dieser Zeiten erreichen Sie uns jederzeit per Formular, E-Mail oder Terminbuchung.',
+  schedule: [
+    { dayIndex: 0, short: 'Mo', day: 'Montag',     hours: '08:00 – 10:00 · 18:00 – 20:00', open: true },
+    { dayIndex: 1, short: 'Di', day: 'Dienstag',   hours: '08:00 – 10:00 · 18:00 – 20:00', open: true },
+    { dayIndex: 2, short: 'Mi', day: 'Mittwoch',   hours: '18:00 – 20:00', open: true },
+    { dayIndex: 3, short: 'Do', day: 'Donnerstag', hours: '08:00 – 10:00 · 18:00 – 20:00', open: true },
+    { dayIndex: 4, short: 'Fr', day: 'Freitag',    hours: 'Nicht verfügbar', open: false },
+    { dayIndex: 5, short: 'Sa', day: 'Samstag',    hours: 'Nicht verfügbar', open: false },
+    { dayIndex: 6, short: 'So', day: 'Sonntag',    hours: 'Nicht verfügbar', open: false },
+  ],
+};

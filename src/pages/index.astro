@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { Icon } from 'astro-icon/components';
-import { site, stats, services, plans, priceFootnote, fernwartung, values, about, serviceStatus } from '../data/site';
+import { site, stats, services, plans, priceFootnote, fernwartung, values, about, serviceStatus, supportHours } from '../data/site';
 
 const statusLabel: Record<string, string> = {
   online: '● ONLINE',
@@ -148,6 +148,16 @@ const dotClass = `dot status-${serviceStatus.state}`;
     .row2 { grid-template-columns: 1fr; }
     .section { padding: 80px 0; }
   }
+
+  .reach-note { color: var(--muted); font-size: 13.5px; margin: 0 0 14px; }
+  .reach { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .reach-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 12px; border-bottom: 1px solid var(--line); font-size: 13px; }
+  .reach-row:last-child { border-bottom: none; }
+  .reach-row .rc-day { font-family: var(--font-mono); color: var(--accent-ink); min-width: 26px; }
+  .reach-row.open .rc-hours { color: var(--ok); }
+  .reach-row.closed .rc-hours { color: var(--err); font-size: 12px; }
+  .reach-row.today { background: var(--accent-dim); box-shadow: inset 3px 0 0 var(--accent-strong); }
+  .reach-row.today .rc-day { color: var(--accent-strong); }
 </style>
 
 <Base>
@@ -388,6 +398,20 @@ const dotClass = `dot status-${serviceStatus.state}`;
           </div>
 
           <div class="panel box" data-reveal>
+            <h3>{supportHours.title}</h3>
+            <p class="reach-note">{supportHours.note}</p>
+            <div class="reach">
+              {supportHours.schedule.map((s) => (
+                <div class={`reach-row ${s.open ? 'open' : 'closed'}`} data-day-index={s.dayIndex}>
+                  <span class="rc-day">{s.short}</span>
+                  <span class="rc-hours">{s.hours}</span>
+                </div>
+              ))}
+            </div>
+            <a class="btn btn-ghost btn-mono" style="width:100%;margin-top:16px;" href="/fernwartung-zeiten"><span class="arrow">[</span> Zeiten im Detail</a>
+          </div>
+
+          <div class="panel box" data-reveal>
             <h3>Direktkontakt</h3>
             <div class="direct">
               <a href={site.phoneHref}><span class="ic"><Icon name="lucide:phone" size={20} /></span><span><span class="lbl">Festnetz</span><span class="val">{site.phone}</span></span></a>
@@ -400,4 +424,12 @@ const dotClass = `dot status-${serviceStatus.state}`;
       </div>
     </div>
   </section>
+
+<script>
+  // Markiert heute im Erreichbarkeits-Panel
+  const _today = (new Date().getDay() + 6) % 7;
+  document.querySelectorAll('[data-day-index]').forEach((el) => {
+    if (Number(el.dataset.dayIndex) === _today) el.classList.add('today');
+  });
+</script>
 </Base>
