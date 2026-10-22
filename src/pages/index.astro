@@ -125,7 +125,7 @@ const dotClass = `dot status-${serviceStatus.state}`;
   .box h3 { font-size: 20px; margin-bottom: 20px; }
   .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .direct { display: flex; flex-direction: column; }
-  .direct a, .direct .st { display: flex; align-items: center; gap: 16px; padding: 12px; border-radius: var(--radius); transition: background .2s, transform .2s; }
+  .direct a, .direct .st { display: flex; align-items: flex-start; gap: 16px; padding: 12px; border-radius: var(--radius); transition: background .2s, transform .2s; }
   .direct a:hover { background: var(--panel-2); transform: translateX(4px); }
   .direct .ic { width: 46px; height: 46px; flex-shrink: 0; border: 1px solid var(--accent-line); background: var(--accent-dim); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
   .direct .ic svg { color: var(--accent-strong); }
