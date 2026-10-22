@@ -42,7 +42,7 @@ const nav = [
       <div>
         <h4>Kontakt</h4>
         <ul>
-                  <li><Icon name="lucide:map-pin" size={14} style="color:var(--accent-strong);vertical-align:-2px;margin-right:6px" /> {site.location}</li>
+                  <li><a href={site.mapsHref} target="_blank" rel="noopener"><Icon name="lucide:map-pin" size={14} style="color:var(--accent-strong);vertical-align:-2px;margin-right:6px" /> {site.location}</a></li>
                   <li><a href={site.phoneHref}><Icon name="lucide:phone" size={14} style="color:var(--accent-strong);vertical-align:-2px;margin-right:6px" /> {site.phone}</a></li>
                   <li><a href={site.mobileHref}><Icon name="lucide:smartphone" size={14} style="color:var(--accent-strong);vertical-align:-2px;margin-right:6px" /> {site.mobile}</a></li>
                   <li><a href={site.emailHref}><Icon name="lucide:mail" size={14} style="color:var(--accent-strong);vertical-align:-2px;margin-right:6px" /> {site.email}</a></li>

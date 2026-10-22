@@ -16,6 +16,7 @@ export const site = {
   emailHref: 'mailto:info@kistler-it.ch',
   calendly: 'https://calendly.com/kistler-it-info',
   nas: 'https://kistler-it.direct.quickconnect.to:5099',
+  mapsHref: 'https://www.google.com/maps/search/?api=1&query=Winterthurerstrasse+45+8610+Uster',
 };
 
 // Echte, steuerbare Statusanzeige im Hero.
