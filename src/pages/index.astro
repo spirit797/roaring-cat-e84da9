@@ -114,6 +114,7 @@ const dotClass = `dot status-${serviceStatus.state}`;
   .about-text { margin-bottom: 30px; color: var(--muted); font-size: 16px; }
   .about-text p { margin-bottom: 14px; }
   .contact-rows div { display: flex; align-items: center; gap: 12px; padding: 9px 0; color: var(--text); font-size: 15px; }
+  .contact-rows div:has(.ci) { white-space: nowrap; }
   .contact-rows .ci { width: 30px; text-align: center; font-size: 16px; color: var(--accent-strong); }
 
   /* ===== KONTAKT ===== */
