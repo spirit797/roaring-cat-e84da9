@@ -146,6 +146,7 @@ const dotClass = `dot status-${serviceStatus.state}`;
     .stats { grid-template-columns: repeat(2, 1fr); }
     .vals { grid-template-columns: 1fr; }
     .row2 { grid-template-columns: 1fr; }
+    .reach-grid { grid-template-columns: 1fr; }
     .section { padding: 80px 0; }
   }
 
@@ -158,6 +159,7 @@ const dotClass = `dot status-${serviceStatus.state}`;
   .reach-row.closed .rc-hours { color: var(--err); font-size: 12px; }
   .reach-row.today { background: var(--accent-dim); box-shadow: inset 3px 0 0 var(--accent-strong); }
   .reach-row.today .rc-day { color: var(--accent-strong); }
+  .reach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
 </style>
 
 <Base>
@@ -397,8 +399,9 @@ const dotClass = `dot status-${serviceStatus.state}`;
             <a class="btn btn-ghost btn-mono" style="width:100%;margin-top:16px;" href={site.calendly} target="_blank" rel="noopener noreferrer"><span class="arrow">📅</span> Termin im Kalender buchen</a>
           </div>
 
-          <div class="panel box" data-reveal>
-            <h3>{supportHours.title}</h3>
+                    <div class="reach-grid">
+                    <div class="panel box" data-reveal>
+                      <h3>{supportHours.title}</h3>
             <p class="reach-note">{supportHours.note}</p>
             <div class="reach">
               {supportHours.schedule.map((s) => (
@@ -418,12 +421,13 @@ const dotClass = `dot status-${serviceStatus.state}`;
               <a href={site.mobileHref}><span class="ic"><Icon name="lucide:smartphone" size={20} /></span><span><span class="lbl">Mobile</span><span class="val">{site.mobile}</span></span></a>
               <a href={site.emailHref}><span class="ic"><Icon name="lucide:mail" size={20} /></span><span><span class="lbl">E-Mail</span><span class="val">{site.email}</span></span></a>
               <div class="st"><span class="ic"><Icon name="lucide:map-pin" size={20} /></span><span><span class="lbl">Adresse</span><span class="val">{site.location}</span></span></div>
-            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
 
 <script>
   // Markiert heute im Erreichbarkeits-Panel
